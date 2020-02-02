@@ -1,0 +1,76 @@
+{
+	"name": "quickstart",
+	"displayName": "QuickStart",
+	"description": "Initialize the JSX TSX vue file",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.JSandVue2",
+		"onCommand:extension.JSandVue2andClass",
+		"onCommand:extension.TSandVue2",
+		"onCommand:extension.JSandReact",
+		"onCommand:extension.JSandReactandClass",
+		"onCommand:extension.TSandReact",
+		"onCommand:extension.TSandReactandClass",
+		"onCommand:extension.TSandVue3"
+	],
+	"main": "./out/index.js",
+	"contributes": {
+		"commands": [{
+			"command": "extension.JSandVue2",
+			"title": "JS:初始化Vue2组件模版",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.JSandVue2andClass",
+			"title": "JS:初始化Vue2组件模版(class风格)",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.TSandVue2",
+			"title": "TS:初始化Vue2组件模版",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.JSandReact",
+			"title": "JS:初始化React组件模版",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.JSandReactandClass",
+			"title": "JS:初始化React组件模版(class风格)",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.TSandReact",
+			"title": "TS:初始化React组件模版",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.TSandReactandClass",
+			"title": "TS:初始化React组件模版(class风格)",
+			"category": "QuickStart"
+		}, {
+			"command": "extension.TSandVue3",
+			"title": "TS:初始化Vue3组件模版",
+			"category": "QuickStart"
+		}]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	}
+}

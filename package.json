@@ -2,6 +2,7 @@
 	"name": "quickstart",
 	"displayName": "QuickStart",
 	"description": "Initialize the JSX TSX vue file",
+	"repository": "https://github.com/BengBu-YueZhang/vscode-template-plugin.git",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.41.0"
@@ -10,47 +11,60 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.JSandVue2",
-		"onCommand:extension.JSandVue2andClass",
-		"onCommand:extension.TSandVue2",
-		"onCommand:extension.JSandReact",
-		"onCommand:extension.JSandReactandClass",
-		"onCommand:extension.TSandReact",
-		"onCommand:extension.TSandReactandClass",
-		"onCommand:extension.TSandVue3"
+		"onCommand:quickstart.JSandVue2",
+		"onCommand:quickstart.JSandVue2andClass",
+		"onCommand:quickstart.TSandVue2",
+		"onCommand:quickstart.JSandReact",
+		"onCommand:quickstart.JSandReactandClass",
+		"onCommand:quickstart.TSandReact",
+		"onCommand:quickstart.TSandReactandClass",
+		"onCommand:quickstart.TSandVue3",
+		"onLanguage:vue",
+		"onLanguage:jsx",
+		"onLanguage:tsx"
 	],
 	"main": "./out/index.js",
 	"contributes": {
+		"configuration": {
+			"title": "QuickStart Configuration",
+			"properties": {
+				"quickstart.auto": {
+					"type": "boolean",
+					"default": false,
+					"description": "是否打开文件时自动填充文件(文件为空时)"
+				}
+			}
+		},
 		"commands": [{
-			"command": "extension.JSandVue2",
+			"command": "quickstart.JSandVue2",
 			"title": "JS:初始化Vue2组件模版",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.JSandVue2andClass",
+			"command": "quickstart.JSandVue2andClass",
 			"title": "JS:初始化Vue2组件模版(class风格)",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.TSandVue2",
+			"command": "quickstart.TSandVue2",
 			"title": "TS:初始化Vue2组件模版",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.JSandReact",
+			"command": "quickstart.JSandReact",
 			"title": "JS:初始化React组件模版",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.JSandReactandClass",
+			"command": "quickstart.JSandReactandClass",
 			"title": "JS:初始化React组件模版(class风格)",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.TSandReact",
+			"command": "quickstart.TSandReact",
 			"title": "TS:初始化React组件模版",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.TSandReactandClass",
+			"command": "quickstart.TSandReactandClass",
 			"title": "TS:初始化React组件模版(class风格)",
 			"category": "QuickStart"
 		}, {
-			"command": "extension.TSandVue3",
+			"command": "quickstart.TSandVue3",
 			"title": "TS:初始化Vue3组件模版",
 			"category": "QuickStart"
 		}]

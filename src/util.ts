@@ -12,10 +12,10 @@ import * as vscode from 'vscode';
 
 type Tpl = 'JSandVue2' | 'JSandVue2andClass' | 'TSandVue2' | 'JSandReact' | 'JSandReactandClass' | 'TSandReact' | 'TSandReactandClass' | 'TSandVue3';
 
-export function getTpl (type: Tpl): string {
+export function getTpl (type: Tpl, componentName: string): string {
     switch (type) {
         case 'JSandVue2':
-            return JSandVue2;
+            return JSandVue2(componentName);
         case 'JSandVue2andClass':
             return JSandVue2andClass;
         case 'TSandVue2':
@@ -35,14 +35,41 @@ export function getTpl (type: Tpl): string {
     }
 }
 
-export function insertTpl (tpl: string) {
-    const editor = vscode.window.activeTextEditor;
-    if (editor) {
+export function insertTpl (type: Tpl) {
+    const textEditor = vscode.window.activeTextEditor;
+    if (textEditor) {
         const start = new vscode.Position(0, 0);
         const end = new vscode.Position(0, 0);
         const range = new vscode.Range(start, end);
-        editor.edit(editBuilder => {
+        const componentName = getComponentName(textEditor.document.fileName);
+        const tpl = getTpl(type, componentName);
+        textEditor.edit(editBuilder => {
             editBuilder.replace(range, tpl);
         });
     }
+}
+
+/**
+ * 自动填写组件名称的功能，可以通过配置，决定是否开启
+ * 获取组件名称的策略:
+ * 1. 如果文件的名称是 boo.vue 或者 boo.jsx，那么返回boo
+ * 2. 如果文件的名称是 index.vue 或者 index.jsx 那么返回文件上一层文件夹的名称
+ */
+export function getComponentName (path: string): string {
+    const filename = getActiveFileName(path);
+    const foldername = getActiveFolderName(path);
+    if (filename !== 'index') {
+        return filename;
+    }
+    return foldername;
+}
+
+export function getActiveFileName (path: string): string {
+    const paths = path.split('/');
+    return '';
+}
+
+export function getActiveFolderName (path: string): string {
+    const paths = path.split('/');
+    return '';
 }

@@ -1,26 +1,77 @@
-export const JSandVue2 =
+export const JSandVue2 = (componentName: string = 'PLACEHOLDER') => {
+    const tpl =
 `<template>
   <div>
   </div>
 </template>
-
+  
 <script>
 export default {
-  name: ''
+  name: '${componentName}',
+  
+  props: {
+  },
+  
+  data () {
+    return {
+    }
+  },
+  
+  mounted () {
+  }
+  
+  methods: {
+  }
 }
 </script>
-
+  
 <style scope>
 </style>`;
 
-export const JSandVue2andClass =
-`JSandVue2andClass`;
+    return tpl;
+};
 
-export const TSandVue2 = 
-`TSandVue2`;
+export const JSandVue2andClass = (componentName: string = 'PLACEHOLDER') => {
+    const tpl =
+`
+<template>
+  <div>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+</script>
+`;
+    
+    return tpl;
+};
+
+export const TSandVue2 = (componentName: string = 'PLACEHOLDER') => {
+    const tpl =
+`
+<template>
+  <div>
+  </div>
+</template>
+    
+<script lang="ts">
+import Vue from 'vue';
+import { Component, Prop } from 'vue-property-decorator';
+
+@Component({
+  name: '${componentName}',
+})
+export default class ${componentName} extends Vue {
+}
+</script>
+`;
+
+    return tpl;
+};
 
 export const JSandReact =
-`JSandReact`;
+`import React from 'react';`;
 
 export const JSandReactandClass = 
 `JSandReactandClass`;

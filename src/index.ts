@@ -1,39 +1,42 @@
 import * as vscode from 'vscode';
+import {
+	getTpl,
+	insertTpl
+} from './util';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	// "onCommand:extension.JSandVue2",
-	// "onCommand:extension.JSandVue2andClass",
-	// "onCommand:extension.TSandVue2",
-	// "onCommand:extension.JSandReact",
-	// "onCommand:extension.JSandReactandClass",
-	// "onCommand:extension.TSandReact",
-	// "onCommand:extension.TSandReactandClass",
-	// "onCommand:extension.TSandVue3"
-
 	const JSandVue2 = vscode.commands.registerCommand('quickstart.JSandVue2', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('JSandVue2');
+		insertTpl(tpl);
 	});
 	const JSandVue2andClass = vscode.commands.registerCommand('quickstart.JSandVue2andClass', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('JSandVue2andClass');
+		insertTpl(tpl);
 	});
 	const TSandVue2 = vscode.commands.registerCommand('quickstart.TSandVue2', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('TSandVue2');
+		insertTpl(tpl);
 	});
 	const JSandReact = vscode.commands.registerCommand('quickstart.JSandReact', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('JSandReact');
+		insertTpl(tpl);
 	});
 	const JSandReactandClass = vscode.commands.registerCommand('quickstart.JSandReactandClass', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('JSandReactandClass');
+		insertTpl(tpl);
 	});
 	const TSandReact = vscode.commands.registerCommand('quickstart.TSandReact', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('TSandReact');
+		insertTpl(tpl);
 	});
 	const TSandReactandClass = vscode.commands.registerCommand('quickstart.TSandReactandClass', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('TSandReactandClass');
+		insertTpl(tpl);
 	});
 	const TSandVue3 = vscode.commands.registerCommand('quickstart.TSandVue3', () => {
-		vscode.window.showInformationMessage('Hello World!');
+		const tpl = getTpl('TSandVue3');
+		insertTpl(tpl);
 	});
 
 	context.subscriptions.push(JSandVue2);

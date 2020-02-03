@@ -1,5 +1,6 @@
 {
 	"name": "quickstart",
+	"publisher": "bbyue",
 	"displayName": "QuickStart",
 	"description": "Initialize the JSX TSX vue file",
 	"repository": "https://github.com/BengBu-YueZhang/vscode-template-plugin.git",
@@ -71,7 +72,9 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"package": "node /usr/local/Cellar/node/11.2.0/lib/node_modules/vsce/out/vsce package",
+		"publish": "node /usr/local/Cellar/node/11.2.0/lib/node_modules/vsce/out/vsce publish"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",

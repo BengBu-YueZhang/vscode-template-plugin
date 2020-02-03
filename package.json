@@ -4,7 +4,7 @@
 	"displayName": "QuickStart",
 	"description": "Initialize the JSX TSX vue file",
 	"repository": "https://github.com/BengBu-YueZhang/vscode-template-plugin.git",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.41.0"
 	},

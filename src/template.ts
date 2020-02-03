@@ -7,7 +7,7 @@ export const JSandVue2 = (name: string = '') => {
   
 <script>
 export default {
-  name: ${name},
+  name: '${name}',
   
   props: {
   },
@@ -50,7 +50,7 @@ import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
 @Component({
-  name: ${name},
+  name: '${name}',
 })
 export default class ${name} extends Vue {
   @Prop({ default: '' }) prop!:string;

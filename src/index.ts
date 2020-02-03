@@ -1,42 +1,33 @@
 import * as vscode from 'vscode';
 import {
-	getTpl,
 	insertTpl,
 } from './util';
 
 export function activate(context: vscode.ExtensionContext) {
 
 	const JSandVue2 = vscode.commands.registerCommand('quickstart.JSandVue2', (url) => {
-		// const tpl = getTpl('JSandVue2');
-		// insertTpl(tpl);
+		insertTpl('JSandVue2');
 	});
 	const JSandVue2andClass = vscode.commands.registerCommand('quickstart.JSandVue2andClass', () => {
-		// const tpl = getTpl('JSandVue2andClass');
-		// insertTpl(tpl);
+		insertTpl('JSandVue2andClass');
 	});
 	const TSandVue2 = vscode.commands.registerCommand('quickstart.TSandVue2', () => {
-		// const tpl = getTpl('TSandVue2');
-		// insertTpl(tpl);
+		insertTpl('TSandVue2');
 	});
 	const JSandReact = vscode.commands.registerCommand('quickstart.JSandReact', () => {
-		// const tpl = getTpl('JSandReact');
-		// insertTpl(tpl);
+		insertTpl('JSandReact');
 	});
 	const JSandReactandClass = vscode.commands.registerCommand('quickstart.JSandReactandClass', () => {
-		// const tpl = getTpl('JSandReactandClass');
-		// insertTpl(tpl);
+		insertTpl('JSandReactandClass');
 	});
 	const TSandReact = vscode.commands.registerCommand('quickstart.TSandReact', () => {
-		// const tpl = getTpl('TSandReact');
-		// insertTpl(tpl);
+		insertTpl('TSandReact');
 	});
 	const TSandReactandClass = vscode.commands.registerCommand('quickstart.TSandReactandClass', () => {
-		// const tpl = getTpl('TSandReactandClass');
-		// insertTpl(tpl);
+		insertTpl('TSandReactandClass');
 	});
 	const TSandVue3 = vscode.commands.registerCommand('quickstart.TSandVue3', () => {
-		// const tpl = getTpl('TSandVue3');
-		// insertTpl(tpl);
+		insertTpl('TSandVue3');
 	});
 
 	context.subscriptions.push(JSandVue2);

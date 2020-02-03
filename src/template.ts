@@ -63,7 +63,10 @@ export default class ${name} extends Vue {
   private methods(): void {
   }
 }
-</script>`;
+</script>
+
+<style>
+</style>`;
 
     return tpl;
 };
@@ -81,9 +84,9 @@ const ${name} = (props) => {
   return (
     <div></div>
   );
-}
+};
 
-export default ${name}`;
+export default ${name};`;
 
     return tpl;
 };
@@ -133,7 +136,7 @@ const ${name}: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default ${name}`;
+export default ${name};`;
 
   return tpl;
 };
@@ -143,10 +146,10 @@ export const TSandReactandClass = (name: string = '_') => {
 `import * as React from 'react';
 
 export interface IProps {
-}
+};
 
 export interface IState {
-}
+};
 
 class ${name} extends React.Component<IProps, IState> {
   constructor(props: IProps) {
@@ -163,9 +166,9 @@ class ${name} extends React.Component<IProps, IState> {
       <div></div>
     )
   }
-}
+};
 
-export default ${name}`;
+export default ${name};`;
     
     return tpl;
 };

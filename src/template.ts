@@ -1,4 +1,4 @@
-export const JSandVue2 = (componentName: string = 'PLACEHOLDER') => {
+export const JSandVue2 = (name: string = '') => {
     const tpl =
 `<template>
   <div>
@@ -7,7 +7,7 @@ export const JSandVue2 = (componentName: string = 'PLACEHOLDER') => {
   
 <script>
 export default {
-  name: '${componentName}',
+  name: ${name},
   
   props: {
   },
@@ -31,26 +31,16 @@ export default {
     return tpl;
 };
 
-export const JSandVue2andClass = (componentName: string = 'PLACEHOLDER') => {
+export const JSandVue2andClass = (name: string = '') => {
     const tpl =
-`
-<template>
-  <div>
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from 'vue';
-</script>
-`;
+``;
     
     return tpl;
 };
 
-export const TSandVue2 = (componentName: string = 'PLACEHOLDER') => {
+export const TSandVue2 = (name: string = '_') => {
     const tpl =
-`
-<template>
+`<template>
   <div>
   </div>
 </template>
@@ -60,27 +50,129 @@ import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
 @Component({
-  name: '${componentName}',
+  name: ${name},
 })
-export default class ${componentName} extends Vue {
+export default class ${name} extends Vue {
+  @Prop({ default: '' }) prop!:string;
+  
+  private data: string = '';
+
+  private mounted(): void {
+  }
+
+  private methods(): void {
+  }
 }
-</script>
-`;
+</script>`;
 
     return tpl;
 };
 
-export const JSandReact =
-`import React from 'react';`;
+export const JSandReact = (name: string = '_') => {
+    const tpl =
+`import React, {useState, useEffect} from 'react';
 
-export const JSandReactandClass = 
-`JSandReactandClass`;
+const ${name} = (props) => {
+  const [state, setState] = useState(null);
+  
+  useEffect(() => {
+  }, [])
 
-export const TSandReact =
-`TSandReact`;
+  return (
+    <div></div>
+  );
+}
 
-export const TSandReactandClass =
-`TSandReactandClass`;
+export default ${name}`;
 
-export const TSandVue3 =
-`TSandVue3`;
+    return tpl;
+};
+
+export const JSandReactandClass = (name: string = '_') => {
+    const tpl =
+`import React, { Component } from 'react';
+
+class ${name} extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  componentDidMount () {
+  }
+
+  render () {
+    return (
+      <div></div>
+    )
+  }
+}
+
+export default ${name}`;
+
+    return tpl;
+};
+
+export const TSandReact = (name: string = '_') => {
+  const tpl =
+`import React, { useState, useEffect } from 'react';
+
+export interface IProps {
+};
+
+const ${name}: React.FC<IProps> = (props: IProps) => {
+  
+  const [state, setState] = useState(null);
+
+  useEffect(() => {
+  }, [])
+ 
+  return (
+    <div></div>
+  );
+};
+
+export default ${name}`;
+
+  return tpl;
+};
+
+export const TSandReactandClass = (name: string = '_') => {
+    const tpl =
+`import * as React from 'react';
+
+export interface IProps {
+}
+
+export interface IState {
+}
+
+class ${name} extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+    };
+  }
+
+  private componentDidMount (): void {
+  }
+
+  private render () {
+    return (
+      <div></div>
+    )
+  }
+}
+
+export default ${name}`;
+    
+    return tpl;
+};
+
+export const TSandVue3 = (name: string = '_') => {
+    const tpl =
+``;
+
+    return tpl;
+};

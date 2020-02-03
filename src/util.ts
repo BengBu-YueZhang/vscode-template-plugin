@@ -12,24 +12,24 @@ import * as vscode from 'vscode';
 
 type Tpl = 'JSandVue2' | 'JSandVue2andClass' | 'TSandVue2' | 'JSandReact' | 'JSandReactandClass' | 'TSandReact' | 'TSandReactandClass' | 'TSandVue3';
 
-export function getTpl (type: Tpl, componentName: string): string {
+export function getTpl (type: Tpl, name: string): string {
     switch (type) {
         case 'JSandVue2':
-            return JSandVue2(componentName);
+            return JSandVue2(name);
         case 'JSandVue2andClass':
-            return JSandVue2andClass;
+            return JSandVue2andClass(name);
         case 'TSandVue2':
-            return TSandVue2;
+            return TSandVue2(name);
         case 'JSandReact':
-            return JSandReact;
+            return JSandReact(name);
         case 'JSandReactandClass':
-            return JSandReactandClass;
+            return JSandReactandClass(name);
         case 'TSandReact':
-            return TSandReact;
+            return TSandReact(name);
         case 'TSandReactandClass':
-            return TSandReactandClass;
+            return TSandReactandClass(name);
         case 'TSandVue3':
-            return TSandVue3;
+            return TSandVue3(name);
         default:
             return '';
     }
@@ -41,8 +41,8 @@ export function insertTpl (type: Tpl) {
         const start = new vscode.Position(0, 0);
         const end = new vscode.Position(0, 0);
         const range = new vscode.Range(start, end);
-        const componentName = getComponentName(textEditor.document.fileName);
-        const tpl = getTpl(type, componentName);
+        const name = getComponentName(textEditor.document.fileName);
+        const tpl = getTpl(type, name);
         textEditor.edit(editBuilder => {
             editBuilder.replace(range, tpl);
         });
@@ -56,6 +56,10 @@ export function insertTpl (type: Tpl) {
  * 2. 如果文件的名称是 index.vue 或者 index.jsx 那么返回文件上一层文件夹的名称
  */
 export function getComponentName (path: string): string {
+    const { isAutoName = true } = vscode.workspace.getConfiguration('quickstart');
+    if (!isAutoName) {
+        return '';
+    }
     const filename = getActiveFileName(path);
     const foldername = getActiveFolderName(path);
     if (filename !== 'index') {
@@ -66,10 +70,13 @@ export function getComponentName (path: string): string {
 
 export function getActiveFileName (path: string): string {
     const paths = path.split('/');
-    return '';
+    const filename = paths[paths.length - 1];
+    return filename.split('.')[0];
 }
 
 export function getActiveFolderName (path: string): string {
     const paths = path.split('/');
-    return '';
+    paths.pop();
+    const foldername = paths[paths.length - 1];
+    return foldername;
 }

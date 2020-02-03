@@ -18,20 +18,17 @@
 		"onCommand:quickstart.JSandReactandClass",
 		"onCommand:quickstart.TSandReact",
 		"onCommand:quickstart.TSandReactandClass",
-		"onCommand:quickstart.TSandVue3",
-		"onLanguage:vue",
-		"onLanguage:jsx",
-		"onLanguage:tsx"
+		"onCommand:quickstart.TSandVue3"
 	],
 	"main": "./out/index.js",
 	"contributes": {
 		"configuration": {
 			"title": "QuickStart Configuration",
 			"properties": {
-				"quickstart.auto": {
+				"quickstart.isAutoName": {
 					"type": "boolean",
-					"default": false,
-					"description": "是否打开文件时自动填充文件(文件为空时)"
+					"default": true,
+					"description": "是否自动填写组件名称的功能"
 				}
 			}
 		},
